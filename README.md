@@ -62,7 +62,17 @@ Drop-down lists for the selection of the servant's **class damage modifier** (i.
 \
 \
 Buttons to calculate the **Noble Phantasm's damage** and to reset all the fields.\
-![image](https://user-images.githubusercontent.com/132686729/236617737-b130db35-5b31-4cff-a460-377980a127a4.png)
+![image](https://user-images.githubusercontent.com/132686729/236617737-b130db35-5b31-4cff-a460-377980a127a4.png)\
+\
+\
+Fields where the damage is displaye.\
+![image](https://user-images.githubusercontent.com/132686729/236619110-1c88e41f-fd6f-48da-8334-816eb55c41a4.png)\
+\
+\
+Field for the **Enemy's HP** you want to test the damage against. The buttons ![image](https://user-images.githubusercontent.com/132686729/236620253-3468bc9e-a669-4f75-b9b4-9c8f985fc66f.png)
+ is to refresh the display after the value in the previous filed is modified.\
+![image](https://user-images.githubusercontent.com/132686729/236620270-1d6b8f51-4a4f-474a-9b2e-5334c55303fc.png)
+
 
 
 
