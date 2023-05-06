@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="base_anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.damagecalculator.Controller">
+
+    <children>
+        <Pane fx:id="title_pane" prefHeight="96.0" prefWidth="1024.0" style="-fx-background-color: #F30B23; -fx-border-width: 0.5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="fgoDamageCalculator_lbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="1024.0" text="FGO NP DAMAGE CALCULATOR" textAlignment="CENTER" textOverrun="CLIP">
+                    <font>
+                        <Font name="Marlett" size="44.0" />
+                    </font>
+               <effect>
+                  <ColorAdjust brightness="-1.0" contrast="0.5" />
+               </effect>
+                </Label>
+            </children>
+        </Pane>
+        <Label fx:id="servantINFO_lbl" alignment="CENTER" contentDisplay="CENTER" layoutY="96.0" prefHeight="42.0" prefWidth="320.0" style="-fx-background-color: #C2C2C2;" text="Servant Info">
+            <font>
+                <Font name="Marlett" size="26.0" />
+            </font>
+        </Label>
+        <ScrollPane fx:id="infos_scrlpane" fitToWidth="true" layoutY="138.0" prefHeight="438.0" prefWidth="320.0">
+            <content>
+                <AnchorPane fx:id="infos_anchpane" minHeight="0.0" minWidth="0.0" prefHeight="864.0" prefWidth="308.0">
+                    <children>
+                        <GridPane fx:id="servanrAttackNPMultiplier_grid" layoutX="1.0" prefHeight="72.0" prefWidth="306.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="102.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="102.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="servantAttack_lbl" contentDisplay="CENTER" text="Servant's Attack" GridPane.valignment="BOTTOM">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="servantAttack_txf" onKeyPressed="#servantAttackInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Your servant's attack">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="npMultiplier_lbl" contentDisplay="CENTER" text="NP Multiplier" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="npMultiplier_txf" onKeyPressed="#npMultiplierInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Your servant's noble phantasm multiplier">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                            </children>
+                        </GridPane>
+                          <ToggleButton fx:id="buster_btn" contentDisplay="CENTER" layoutX="1.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="102.0" selected="true" stylesheets="@../../../style.css" text="Buster" textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="cardColour_tgb" />
+                     </toggleGroup>
+                     <font>
+                        <Font name="Marlett" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="toggle_button" />
+                        <String fx:value="buster_btn" />
+                     </styleClass>
+                          </ToggleButton>
+                          <ToggleButton fx:id="arts_btn" contentDisplay="CENTER" layoutX="103.0" layoutY="84.0" onAction="#cardColourPersistentChoice" prefHeight="40.0" prefWidth="102.0" stylesheets="@../../../style.css" text="Arts" textFill="WHITE" toggleGroup="$cardColour_tgb">
+                     <font>
+                        <Font name="Marlett" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="toggle_button" />
+                        <String fx:value="arts_btn" />
+                     </styleClass>
+                          </ToggleButton>
+                          <ToggleButton fx:id="quick_btn" contentDisplay="CENTER" layoutX="205.0" layoutY="84.0" onAction="#cardColourPersistentChoice" prefHeight="40.0" prefWidth="102.0" stylesheets="@../../../style.css" text="Quick" textFill="WHITE" toggleGroup="$cardColour_tgb">
+                     <font>
+                        <Font name="Marlett" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="toggle_button" />
+                        <String fx:value="quick_btn" />
+                     </styleClass>
+                          </ToggleButton>
+                        <GridPane fx:id="buffsDebuffs_grid" layoutX="1.0" layoutY="124.0" prefHeight="504.0" prefWidth="306.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="102.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="103.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="attackBuffs_lbl" text="Attack Buffs" GridPane.valignment="BOTTOM">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="attackBuffs_txf" onKeyPressed="#attackBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Attack buffs on your servant">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="attackDebuffs_lbl" text="Attack Debuffs" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="attackDebuffs_txf" onKeyPressed="#attackDebuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Attack debuffs on your servant">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="cardBuffs_lbl" text="Card Buffs" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="cardBuffs_txf" onKeyPressed="#cardBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Card buffs on your servant (i.e. buster up). &#10;If the enemy has a card debuff put that here">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="cardDebuffs_lbl" text="Card Debuffs" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="cardDebuffs_txf" onKeyPressed="#cardDebuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Card debuffs on your servant (i.e. buster down)">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="npDamageBuffs_lbl" text="NP Damage Buffs" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="npDamageBuffs_txf" onKeyPressed="#npDamageBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Np damage buffs on your servant">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="npDamageDebuffs_lbl" text="NP Damage Debuffs" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="npDamageDebuffs_txf" onKeyPressed="#npDamageDebuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Np damage debuffs on your servant">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="specialAttackBuffs_lbl" text="Special Attack Buffs" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="specialAttackBuffs_txf" onKeyPressed="#specialAttackBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Special attack buffs on your servant (i.e. attack up against dragon)">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="specialDefenceBuffs_lbl" text="Special Defence Buffs" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="specialDefenceBuffs_txf" onKeyPressed="#specialDefenceBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Special defence buffs on the enemy (i.e. defence up against dragon)">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="flatDamageBuffs_lbl" text="Flat Damage Buffs" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="flatDamageBuffs_txf" onKeyPressed="#flatDamageBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Flat attack buffs on your servants (i.e. divinity, Waver's 3rd skill)">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="damageCutBuffs_lbl" text="Damage Cut Buffs" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="damageCutBuffs_txf" onKeyPressed="#damageCutBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Damage cut buffs on the enemy">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="defenceDebuffs_lbl" text="Defence Debuffs" GridPane.rowIndex="10">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="defenceDebuffs_txf" onKeyPressed="#defenceDebuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="11">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Defence debuffs on the enemy">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="defenceBuffs_lbl" text="Defence Buffs" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="defenceBuffs_txf" onKeyPressed="#defenceBuffsInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Defence buffs on the enemy">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="npExtraDamage_lbl" text="NP Extra Damage" GridPane.rowIndex="12">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="npExtraDamage_txf" onKeyPressed="#npExtraDamageInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.rowIndex="13">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="Extra damage your servant's np does to specific enemies &#10;(i.e. Beast Nero against the main seven classes).&#10;If the np does 150% extra damage, put only 50%">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                                <Label fx:id="damageReduction_lbl" text="Damage Reduction" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="damageReduction_txf" onKeyPressed="#damageReductionInputCheck" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                           <tooltip>
+                              <Tooltip text="If an enemy has a damage reduction buff put that here (i.e. Gawain in Camelot)">
+                                 <font>
+                                    <Font name="Marlett" size="12.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                                </TextField>
+                            </children>
+                        </GridPane>
+                        <GridPane layoutX="1.0" layoutY="638.0" prefHeight="216.0" prefWidth="306.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="class_lbl" text="Class">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="class_cbx" onAction="#classSelection" prefWidth="306.0" GridPane.rowIndex="1" />
+                                <Label fx:id="advantage_lbl" text="Class Advantage" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="advantage_cbx" onAction="#advantageSelection" prefWidth="306.0" GridPane.rowIndex="3" />
+                                <Label fx:id="attribute_lbl" text="Man/Earth/Sky" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="Marlett" size="16.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="attribute_cbx" onAction="#attributeSelection" prefWidth="306.0" GridPane.rowIndex="5" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Button fx:id="calculate_btn" alignment="CENTER" layoutY="576.0" mnemonicParsing="false" onMouseReleased="#displayCalculationResults" prefHeight="64.0" prefWidth="200.0" stylesheets="@../../../style.css" text="CALCULATE" textFill="WHITE">
+            <font>
+                <Font name="Marlett" size="26.0" />
+            </font>
+         <styleClass>
+            <String fx:value="button" />
+            <String fx:value="calculate" />
+         </styleClass>
+        </Button>
+        <Button fx:id="reset_btn" layoutX="200.0" layoutY="576.0" mnemonicParsing="false" onMouseReleased="#resetCalculationResults" prefHeight="64.0" prefWidth="120.0" styleClass="reset" stylesheets="@../../../style.css" text="RESET" textFill="WHITE">
+            <font>
+                <Font name="Marlett" size="26.0" />
+            </font>
+        </Button>
+        <AnchorPane fx:id="displayAttack_anchpane" layoutX="320.0" layoutY="96.0" prefHeight="544.0" prefWidth="704.0">
+            <children>
+                <GridPane fx:id="displayAttack_grid" prefHeight="544.0" prefWidth="704.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="64.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="224.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="64.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="64.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="224.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="64.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="136.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="enemyHP_lbl" text="Enemy HP" translateX="32.0" GridPane.columnIndex="5" GridPane.columnSpan="2">
+                            <font>
+                                <Font name="Marlett" size="24.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="enemyHP_txf" onKeyPressed="#enemyHPInputCheck" prefHeight="32.0" prefWidth="178.0" promptText="0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Marlett" size="18.0" />
+                            </font>
+                        </TextField>
+                        <Label fx:id="damage_lbl" text="Damage" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Marlett" size="24.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="damageDisplayLOW_lbl" text="Low" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="damageDisplayLOW_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                        <TextField fx:id="damageDisplayAVERAGE_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                  <Label fx:id="damageDisplayAVERAGE_lbl" text="Average" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="damageDisplayHIGH_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                  <Label fx:id="damageDisplayHIGH_lbl" text="High" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                        <Label fx:id="hp1AttackDisplay_lbl" text="HP after NP" translateX="32.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Marlett" size="24.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="hpDisplayLOW_lbl" text="Low" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="hpDisplayLOW_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                        <TextField fx:id="hpDisplayAVERAGE_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                  <Label fx:id="hpDisplayAVERAGE_lbl" text="Average" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="hpDisplayHIGH_txf" editable="false" prefHeight="32.0" style="-fx-border-style: solid; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 0.5;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="Marlett" size="14.0" />
+                            </font>
+                        </TextField>
+                  <Label fx:id="hpDisplayHIGH_lbl" text="High" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Marlett" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="refresh_btn" mnemonicParsing="false" onMouseReleased="#refreshEnemyHPCalculations" prefHeight="32.0" prefWidth="54.0" stylesheets="@../../../style.css" GridPane.columnIndex="5" GridPane.halignment="RIGHT">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="32.0" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                           <image>
+                              <Image url="C:\JavaProject\Damage Calculator\src\Icons\2849811_refresh_arrows_multimedia_media_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Button to refresh the HP after NP displays&#10;when changing values in the Enemy HP field ">
+                           <font>
+                              <Font name="Marlett" size="12.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <styleClass>
+                        <String fx:value="button" />
+                        <String fx:value="refresh" />
+                     </styleClass>
+                  </Button>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

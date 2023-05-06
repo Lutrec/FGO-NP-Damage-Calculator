@@ -1,0 +1,38 @@
+
+.toggle_button{
+-fx-background-color: #909090;
+-fx-background-radius: 0;
+}
+.buster_btn:selected {
+    -fx-background-color: #C80000;
+}
+.buster_btn:hover {
+    -fx-background-color: #C80000;
+}
+.arts_btn:selected {
+    -fx-background-color: #065CF3;
+}
+.arts_btn:hover {
+    -fx-background-color: #065CF3;
+}
+.quick_btn:selected {
+    -fx-background-color: #01980C;
+}
+.quick_btn:hover {
+    -fx-background-color: #01980C;
+}
+.button{
+    -fx-background-color: #909090;
+    -fx-background-radius: 0;
+    -fx-border-color: black;
+}
+.calculate:hover{
+     -fx-background-color: gold;
+     -fx-text-fill: black;
+}
+.reset:hover{
+    -fx-background-color: black;
+}
+.refresh:hover{
+    -fx-background-color: #1E90FF;
+}
