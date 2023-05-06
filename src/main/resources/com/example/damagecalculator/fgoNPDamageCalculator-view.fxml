@@ -275,7 +275,7 @@
                                         <Font name="Marlett" size="16.0" />
                                     </font>
                            <tooltip>
-                              <Tooltip text="Special defence buffs on the enemy (i.e. defence up against dragon)">
+                              <Tooltip text="Special defence buffs on the enemy (i.e. defence up against [dragon])">
                                  <font>
                                     <Font name="Marlett" size="12.0" />
                                  </font>
