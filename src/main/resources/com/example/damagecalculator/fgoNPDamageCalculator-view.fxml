@@ -258,7 +258,7 @@
                                         <Font name="Marlett" size="16.0" />
                                     </font>
                            <tooltip>
-                              <Tooltip text="Special attack buffs on your servant (i.e. attack up against dragon)">
+                              <Tooltip text="Special attack buffs on your servant (i.e. attack up against [dragon])">
                                  <font>
                                     <Font name="Marlett" size="12.0" />
                                  </font>
