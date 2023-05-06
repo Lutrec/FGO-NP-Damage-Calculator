@@ -6,7 +6,7 @@ this is my first public project and the first time I use GitHub so forgive me if
 There isn't much to say, as the title suggested this is yet another tool to calculate the damage of a servant's noble phantasm.
 \
 \
-**Now I can explain some of the UI components, and the damage formula used.**\
+**Now I can explain some of the UI components.**\
 \
 This is the main window where all the numeric values are inserted and the damage is displayed.\
 ![image](https://user-images.githubusercontent.com/132686729/236614568-26ef147b-5ff6-473b-a278-119faf1ac333.png)\
