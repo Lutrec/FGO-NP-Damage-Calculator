@@ -4,6 +4,6 @@ module com.example.damagecalculator {
 
 
 
-    opens com.example.damagecalculator to javafx.fxml;
-    exports com.example.damagecalculator;
+    opens com.example.fgonpdamagecalculator to javafx.fxml;
+    exports com.example.fgonpdamagecalculator;
 }

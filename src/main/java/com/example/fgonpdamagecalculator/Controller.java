@@ -1,4 +1,4 @@
-package com.example.damagecalculator;
+package com.example.fgonpdamagecalculator;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.converter.IntegerStringConverter;
 
-import java.net.URL;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;

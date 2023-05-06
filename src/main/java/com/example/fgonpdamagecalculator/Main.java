@@ -1,4 +1,4 @@
-package com.example.damagecalculator;
+package com.example.fgonpdamagecalculator;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

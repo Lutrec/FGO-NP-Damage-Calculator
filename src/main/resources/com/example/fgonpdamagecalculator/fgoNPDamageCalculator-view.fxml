@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="base_anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.damagecalculator.Controller">
+<AnchorPane fx:id="base_anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fgonpdamagecalculator.Controller">
 
     <children>
         <Pane fx:id="title_pane" prefHeight="96.0" prefWidth="1024.0" style="-fx-background-color: #F30B23; -fx-border-width: 0.5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
