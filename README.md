@@ -37,7 +37,7 @@ and **Np Damage Debuffs** ![image](https://user-images.githubusercontent.com/132
 ![image](https://user-images.githubusercontent.com/132686729/236616795-63fd7eb5-8f09-4b35-bb46-0fb82e620121.png)\
 \
 \
-Fields for **Special Attack Buffs** ![image](https://user-images.githubusercontent.com/132686729/236617603-b6d4dfa0-7183-40b1-ad88-2efaa26dfac3.png) (i.e. bonus damage against [dragon]) on the servant and **Special Defence Buffs** ![image](https://user-images.githubusercontent.com/132686729/236617612-0d911009-c191-4f05-959d-60963634477b.png)
+Fields for **Special Attack Buffs** ![image](https://user-images.githubusercontent.com/132686729/236617603-b6d4dfa0-7183-40b1-ad88-2efaa26dfac3.png) (i.e. bonus damage against [dragon]) on the servant and **Special Defence Buffs** (i.e. defence against [dragon]) ![image](https://user-images.githubusercontent.com/132686729/236617612-0d911009-c191-4f05-959d-60963634477b.png)
 on the enemy.\
 ![image](https://user-images.githubusercontent.com/132686729/236616910-f8ad5cf5-128c-494a-a3d7-a58096d6ff35.png)\
 \
@@ -70,7 +70,7 @@ Fields where the damage is displayed.\
 \
 \
 Field for the **Enemy's HP** you want to test the damage against. The button ![image](https://user-images.githubusercontent.com/132686729/236620253-3468bc9e-a669-4f75-b9b4-9c8f985fc66f.png)
- is to refresh the display after the value in the previous field is modified.\
+ is to refresh the display after the value in the field is modified.\
 ![image](https://user-images.githubusercontent.com/132686729/236620270-1d6b8f51-4a4f-474a-9b2e-5334c55303fc.png)
 
 
